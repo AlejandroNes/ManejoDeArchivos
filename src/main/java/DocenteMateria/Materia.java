@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DocenteMateria;
 
 import java.io.Serializable;
 
 /**
  *
- * @author kelvi
+ * @author AlejandroNes
  */
 public class Materia implements Serializable{
     static final long serialVersionUID=2L; 
@@ -17,8 +13,8 @@ public class Materia implements Serializable{
     private int ano_materia,horas_Materia;
 
     public void mostrar_mat(){
-        System.out.println("materia::"+this.nom_materia);
-        System.out.println("año de materia::"+this.ano_materia);
+        System.out.println("Materia::"+this.nom_materia);
+        System.out.println("Año de materia::"+this.ano_materia);
         System.out.println("Horas materia::"+this.horas_Materia);
     }
     public String getNom_materia() {

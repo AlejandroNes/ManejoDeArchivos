@@ -5,7 +5,24 @@
  */
 package DiscoDuro;
 
+import DocenteMateria.Docente;
+import DocenteMateria.Materia;
+import DocenteMateria.Operacion;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +37,13 @@ public class Almacenamiento {
     private double capacidad;
     private String nomArchivo[] = new String[10];
     private double tamArchivo[] = new double[10];
-    
+    List<DiscoDuro> discoDuro;
+
+        public Almacenamiento() {
+       crearDir();
+       crearArch();
+       discoDuro=new ArrayList<>();
+    }
 
     //metodo llenar
     public void llenar() {
@@ -109,6 +132,73 @@ public class Almacenamiento {
             System.out.println("No se encontro Archivo!!!");
         }
     }
+    
+    //persistencia de datos
+       public void crearDir(){
+    Path path;
+        path=Paths.get("C:\\ProgramacionIII");
+        try{
+            if(!Files.exists(path)){
+            Files.createDirectory(path);
+                System.out.println("directorio creado");
+            }
+            else{
+                System.out.println("ya existe el directorio");}
+        }catch(Exception e){
+           e.printStackTrace();
+        }
+}
+     public void crearArch(){
+    Path path;
+        path=Paths.get("C:\\ProgramacionIII\\listaDiscoDuro.txt");
+        try{
+            if(!Files.exists(path)){
+            Files.createFile(path);
+                System.out.println("Archivo creado");
+            }
+            else{
+                System.out.println("ya existe el Archivo");
+                Files.write(path, "creado".getBytes(),StandardOpenOption.APPEND);
+            }
+        }catch(Exception e){
+           e.printStackTrace();
+        }
+}
+     public void guardar_datos(){
+           String ruta = "C:\\ProgramacionIII\\listaDiscoDuro.txt";
+           try {
+               FileOutputStream arch = new FileOutputStream(ruta);
+               ObjectOutputStream o = new ObjectOutputStream(arch);
+               o.writeObject(nomArchivo);
+               o.close();
+               arch.close();
+               
+           } catch (FileNotFoundException ex) {
+               Logger.getLogger(Operacion.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           catch(IOException ex){
+               Logger.getLogger(Operacion.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+     
+     public void lee_(){
+           String ruta = "C:\\ProgramacionIII\\listaDiscoDuro.txt";
+           try {
+               FileInputStream archivos = new FileInputStream(ruta);
+               ObjectInputStream op = new ObjectInputStream(archivos);
+               if(op != null){
+                 discoDuro= (List<DiscoDuro>)op.readObject();
+               }else{
+                   System.out.println("No existe ningun registro");
+               }
+           } catch (FileNotFoundException e) {
+               Logger.getLogger(Operacion.class.getName()).log(Level.SEVERE , null, e);
+           } catch(IOException ex){
+                Logger.getLogger(Operacion.class.getName()).log(Level.SEVERE, null, ex);
+           } catch(ClassNotFoundException ex){
+                Logger.getLogger(Operacion.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
 
     //getter and setter
 

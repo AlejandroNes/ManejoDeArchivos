@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DocenteMateria;
 
 import java.io.FileInputStream;
@@ -24,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author kelvi
+ * @author AlejandroNes
  */
 public class Operacion {
     
@@ -43,19 +38,19 @@ public class Operacion {
     }
    
    public void regsitra_docente(){
-    System.out.println("nombre::");
+    System.out.println("Nombre::");
     String n=lee2.nextLine();
     doc.setNombre(n);
-    System.out.println("AP paterno::");
+    System.out.println("AP Paterno::");
     String ap=lee2.nextLine();   
     doc.setPaterno(ap);
-    System.out.println("AP materno::");
+    System.out.println("AP Materno::");
        String am=lee2.nextLine();
        doc.setMaterno(am);
-       System.out.println("titulo::");
+       System.out.println("Titulo::");
        String tit=lee2.nextLine();
        doc.setTitulo(tit);
-       System.out.println("carga horaria::");
+       System.out.println("Carga Horaria::");
        int ch=lee2.nextInt();
        doc.setCarga_horaria(ch);
        docente_txt.add(doc);
@@ -63,10 +58,10 @@ public class Operacion {
     }
     
    public void registra_materia(){
-        System.out.println("materia::");
+        System.out.println("Materia::");
         String mater=lee2.nextLine();
         mat.setNom_materia(mater);
-        System.out.println("año de materia::");
+        System.out.println("Año de materia::");
         int a=lee2.nextInt();
         mat.setAno_materia(a);
         System.out.println("Horas materia::");
@@ -76,7 +71,7 @@ public class Operacion {
    
    public void asignar_materia(){
    doc.setMat(mat);
-       System.out.println("asignado!");
+       System.out.println("Asignado!");
    guardar_datos();    
    }
 
@@ -135,7 +130,7 @@ public class Operacion {
                if(op != null){
                  docente_txt= (List<Docente>)op.readObject();
                }else{
-                   System.out.println("NO HAY REGISTRO ALGUNO");
+                   System.out.println("No existe ningun registro");
                }
            } catch (FileNotFoundException e) {
                Logger.getLogger(Operacion.class.getName()).log(Level.SEVERE , null, e);
@@ -151,8 +146,6 @@ public class Operacion {
          System.out.println("-----------------------");
      for(Docente d:docente_txt){
          d.mostrar_doc();
-         //obtiene docente muestra sus datos 
-         //obtiene el atributo de materia, y muestra propiedades de materia
          d.getMat().mostrar_mat();
      }
          System.out.println("-----------------------");

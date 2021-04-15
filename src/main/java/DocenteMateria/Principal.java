@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DocenteMateria;
 
 
@@ -10,7 +5,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author kelvi
+ * @author AlejandroNes
  */
 public class Principal {
     public static void main(String[] args) {
@@ -21,14 +16,14 @@ public class Principal {
         Operacion obj = new Operacion();
         
         do {
-            System.out.println("-----------------------------");
-            System.out.println("1.- CREAR DOCENTE");
-            System.out.println("2.- CREAR MATERIA");
-            System.out.println("3.- ASIGNAR MATERIA");
-            System.out.println("4.- MOSTRAR DOCENTE");
-            System.out.println("5.- SALIR");
+            System.out.println("________________________");
+            System.out.println("1.- Crear Docente");
+            System.out.println("2.- Crear Materia");
+            System.out.println("3.- Asignar Materia");
+            System.out.println("4.- Mostrar Docente");
+            System.out.println("5.- Salir");
             System.out.println("Digite una opción");
-            System.out.println("----------------------------------");
+            System.out.println("________________________ ");
             opc = leer.nextInt();
             switch (opc) {
                 case 1:
