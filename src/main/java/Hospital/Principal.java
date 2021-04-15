@@ -29,15 +29,20 @@ public class Principal {
             switch(opc){
                 case 1:
                     op.registrarHospital();
+                    op.crearDir();
+                    op.crearArch();
                     break;
                 case 2:
                     op.AgregarEspecialidad();
+                   op.guardar_datos();
                     break;
                 case 3:
                     op.mostrarHospital();
+                    op.lee_datos();
                     break;
                 case 4:
                     op.mostrarPorEspecialidad();
+                    op.lee_datos();
                     break;
                 case 5:
                     System.out.println("    Saliendo !!");
