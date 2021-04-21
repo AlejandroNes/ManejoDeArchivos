@@ -1,53 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DiscoDuro;
+
+import java.io.Serializable;
 
 /**
  *
  * @author AlejandroNes
  */
-public class Archivo extends Almacenamiento {
-
-    //atributos
-
-    private double velocidadTransmision;
-
-   
-    //metodos(
-
-    @Override
-    public void llenar() {
-        super.llenar();
-        System.out.println("Ingrese la velocidad de la Transmision:");
-        this.velocidadTransmision = leer.nextDouble();
+public class Archivo implements Serializable{
+    transient static final long serialVersionUID=44L;
+    private String nomarchivo;
+    private double tamaño;
+    
+    public void Mostrar(){
+        System.out.println("...........................................................");
+        System.out.println("Nombre del archivo: " + this.nomarchivo);
+        System.out.println("Tamaño del archivo MB: " + this.tamaño);
+        System.out.println("............................................................");
     }
 
-    @Override
-    public void mostrar() {
-        super.mostrar();
-        System.out.println("Velocidad Transmision: " + this.velocidadTransmision);
-
+    public String getNomarchivo() {
+        return nomarchivo;
     }
 
-    @Override
-    public void adicionarArchivo() {
-        super.adicionarArchivo();
-
+    public void setNomarchivo(String nomarchivo) {
+        this.nomarchivo = nomarchivo;
     }
 
-    @Override
-    public void buscarArchivo() {
-        super.buscarArchivo();
-
+    public double getTamaño() {
+        return tamaño;
     }
 
-    @Override
-    public void eliminarArchivo() {
-        super.eliminarArchivo();
-
+    public void setTamaño(double tamaño) {
+        this.tamaño = tamaño;
     }
-   
-}
+}  

@@ -1,59 +1,62 @@
-
 package Hospital;
+
+import java.util.Scanner;
+
 /**
  *
  * @author AlejandroNes
  */
-import java.util.Scanner;
-
 public class Principal {
-    
     public static void main(String[] args) {
-        Scanner sd =new Scanner (System.in);
-        boolean con = true;
-        int opc;
-        Operaciones op = new Operaciones();
+        Scanner leer =new Scanner (System.in);
+        boolean seguir = true;
+        int x;
+        Operaciones oh = new Operaciones();
         do{
+            System.out.println(" =======MENU DE OPCIONES======");
+            System.out.println("1. Crear Registro");
+            System.out.println("2. Registrar Hospital");
+            System.out.println("3. AñadirEspecialidad");
+            System.out.println("4. Guardar Registros ");
+            System.out.println("5. Mostrar Especialidades de un Hospital");
+            System.out.println("6. Listar Hospitales de una Especialidad");
+            System.out.println("7. Cerrar el Programa");
+            System.out.println("_________________________________");
+            System.out.println(" Elija una opcion    : ");
+            System.out.println("===========================");
+            x = leer.nextInt();
             System.out.println("");
-            System.out.println("    ======== MENU DE OPCIONES ========== ");
-            System.out.println("");
-            System.out.println("    1. RREGISTRAR HOSPITAL ");
-            System.out.println("    2. AGREGAR ESPECIALIDAD ");
-            System.out.println("    3. MOSTRAR ESPECIALIDADES");
-            System.out.println("    4. LISTAR HOSPITALES DE LA ESPECIALIDAD");
-            System.out.println("    5. SALIR ");
-            System.out.println("");
-            System.out.print("    ELIJA UNA OPCION : ");
-            opc = sd.nextInt();
-            System.out.println("");
-            switch(opc){
+            switch(x){
                 case 1:
-                    op.registrarHospital();
-                    op.crearDir();
-                    op.crearArch();
+                    oh.CrearArchivo();
                     break;
                 case 2:
-                    op.AgregarEspecialidad();
-                   op.guardar_datos();
+                    oh.AñadirHospital();
+                    oh.AlmacenarDatos();
                     break;
                 case 3:
-                    op.mostrarHospital();
-                    op.lee_datos();
+                    oh.AñadirEspecialidad();
+                    oh.AlmacenarDatos();
                     break;
                 case 4:
-                    op.mostrarPorEspecialidad();
-                    op.lee_datos();
+                    oh.AlmacenarDatos();
                     break;
                 case 5:
-                    System.out.println("    Saliendo !!");
-                    con = false;
+                    oh.LeerDatos();
+                    oh.MostrarHospital();
+                    break;
+                case 6:
+                    oh.LeerDatos();
+                    oh.MostrarPorEsp();
+                    break;
+                case 7:
+                    System.out.println("Fin programa");
+                    seguir = false;
                     break;
                 default:
-                    System.out.println("    Opcion Incorrecta...");
-                    System.out.println("    Intente de nuevo...");
+                    System.out.println("");
                     break;
             }
-        }while (con);
+        }while (seguir);
     }
-    
 }

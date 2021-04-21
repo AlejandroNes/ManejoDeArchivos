@@ -1,24 +1,22 @@
 package Hospital;
+
 /**
  *
  * @author AlejandroNes
  */
 public class Especialidad {
+    transient static final long serialVersionUID=2L;
+    private String nomesp;
     
-    // ATRIBUTOS
-    private String nomEspe;
-    
-    // METODOS
-    public void mostrarEspe(){
-        System.out.println("Especialidad : "+this.nomEspe);
-    }
-    
-    public String getNomEspe() {
-        return nomEspe;
+    public void MostrarEsp(){
+        System.out.println("Especialidad: "      +this.nomesp);
     }
 
-    public void setNomEspe(String nomEspe) {
-        this.nomEspe = nomEspe;
+    public String getNomesp() {
+        return nomesp;
     }
-    
+
+    public void setNomesp(String nomesp) {
+        this.nomesp = nomesp;
+    }
 }

@@ -1,55 +1,53 @@
-
 package Hospital;
-/**
- *
- * @author AlejandroNes
- */
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Hospital {
-    // OBJETO DE LECTURA
-    Scanner sd = new Scanner (System.in);
-    
-    // ATRIBUTOS
+/**
+ *
+ * @author AlejandroNes
+ */
+public class Hospital implements Serializable{
+    static final long serialVersionUID=1L;
+    transient Scanner sd = new Scanner (System.in);
     private String nombre;
     private String direccion;
     private int nivel;
-    // AGREGANDO ESPECIALIDAD
-    private List <Especialidad> listaEs;
+    private List <Especialidad> ListaEspecialidad;
     
-    //CONSTRUCTOR
     public Hospital(){
-        listaEs = new ArrayList<>();
+        ListaEspecialidad = new ArrayList<>();
     }
-    // METODOS
-    public void mostrarHospital(){
-        System.out.println("    ------ DATOS DE HOPITAL ------ \n");
-        System.out.println("Nombre  : "+this.nombre);
-        System.out.println("Direccion : "+this.direccion);
-        System.out.println("Nivel    : "+this.nivel+"\n");
-        if (listaEs.size() > 0){
-            System.out.println(" ------ ESPECIALIDADES DEL HOSPITAL ------ ");
-            for (Especialidad ee: listaEs){
-                System.out.print(" - ");
-                ee.mostrarEspe();
+    
+    public void MostrarHospital(){
+        System.out.println("======HOSPITAL====== ");
+        System.out.println("Nombre: "+this.nombre);
+        System.out.println("Direccion: "+this.direccion);
+        System.out.println("Nive: "+this.nivel);
+        System.out.println("");
+        if (ListaEspecialidad.size() > 0){
+            System.out.println("-------------ESPECIALIDADES--------------");
+            for (Especialidad item: ListaEspecialidad){
+                System.out.print("---");
+                item.MostrarEsp();
             }
+            System.out.println("");
         }
     }
-    public void mostrarH(){
-        System.out.println("Nombre  : "+this.nombre);
-        System.out.println("Direccion : "+this.direccion);
-        System.out.println("Nivel    : "+this.nivel);
-    }
-    public void agregarEs(Especialidad es){
-        listaEs.add(es);
-        System.out.println("");
-        System.out.println("¡¡¡¡.....Especialidad Agregada.....!!!!");
+    public void MostrarHosp(){
+        System.out.println("Nombre: " +this.nombre);
+        System.out.println("Direccion: " +this.direccion);
+        System.out.println("Nivel: "+this.nivel);
         System.out.println("");
     }
-    
-    // GETTER AND SETTER
+    public void AñadirEsp(Especialidad e){
+        ListaEspecialidad.add(e);
+        System.out.println("------ESPECIALIDAD AGREGADA------");
+        System.out.println("");
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -74,12 +72,11 @@ public class Hospital {
         this.nivel = nivel;
     }
 
-    public List<Especialidad> getListaEs() {
-        return listaEs;
+    public List<Especialidad> getListaEspecialidad() {
+        return ListaEspecialidad;
     }
 
-    public void setListaEs(List<Especialidad> listaEs) {
-        this.listaEs = listaEs;
+    public void setListaEspecialidad(List<Especialidad> ListaEspecialidad) {
+        this.ListaEspecialidad = ListaEspecialidad;
     }
-    
 }
